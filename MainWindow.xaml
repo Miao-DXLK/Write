@@ -15,10 +15,18 @@
                 <Grid x:Name="RootGrid" Background="{TemplateBinding Background}">
                     <Border Background="{TemplateBinding Background}"
                         VerticalAlignment="Top" Height="30" Margin="0 -29 140 0">
-                        <TextBlock Foreground="White" Margin="16 0" VerticalAlignment="Center"
-                               FontSize="12" Text="{TemplateBinding Title}" />
+                        <TextBlock Foreground="Black" Margin="16 0" VerticalAlignment="Center"
+                               FontSize="12" Text="大小洛克" />
                     </Border>
                     <ContentPresenter />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="26*"/>
+                            <ColumnDefinition Width="105*"/>
+                            <ColumnDefinition Width="29*"/>
+                        </Grid.ColumnDefinitions>
+  
+                    </Grid>
                 </Grid>
             </Border>
             <ControlTemplate.Triggers>
