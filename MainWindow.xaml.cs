@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Write.Pages;
 
 namespace Write
 {
@@ -18,7 +19,38 @@ namespace Write
     {
         public MainWindow()
         {
-            InitializeComponent();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Outline outline = new Outline();
+            
+        }
+
+        private void btnGetText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSetText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnGetSelectedText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSetSelectedText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

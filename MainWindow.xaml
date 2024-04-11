@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Write"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        
+        >
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0 64 0 0" NonClientFrameEdges="Left,Bottom,Right" />
     </WindowChrome.WindowChrome>
@@ -18,14 +20,36 @@
                         <TextBlock Foreground="Black" Margin="16 0" VerticalAlignment="Center"
                                FontSize="12" Text="大小洛克" />
                     </Border>
-                    <ContentPresenter />
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="26*"/>
-                            <ColumnDefinition Width="105*"/>
-                            <ColumnDefinition Width="29*"/>
-                        </Grid.ColumnDefinitions>
-  
+                        <FlowDocumentScrollViewer>
+                            <FlowDocument>
+                                
+                            </FlowDocument>
+                        </FlowDocumentScrollViewer>
+                        <DockPanel>
+                            <WrapPanel DockPanel.Dock="Top">
+                                <Button Name="btnGetText" Click="btnGetText_Click">Get text</Button>
+                                <Button Name="btnSetText" Click="btnSetText_Click">Set text</Button>
+                                <Button Name="btnGetSelectedText" Click="btnGetSelectedText_Click">Get sel. text</Button>
+                                <Button Name="btnSetSelectedText" Click="btnSetSelectedText_Click">Replace sel. text</Button>
+                            </WrapPanel>
+                            <TextBox DockPanel.Dock="Bottom" Name="txtStatus" />
+                            <RichTextBox Name="rtbEditor" SelectionChanged="rtbEditor_SelectionChanged">
+                                <RichTextBox.Resources>
+                                    <Style TargetType="{x:Type Paragraph}">
+                                        <Setter Property="Margin" Value="0" />
+                                    </Style>
+                                </RichTextBox.Resources>
+                                <FlowDocument>
+                                    <Paragraph FontSize="36">
+                                        
+                                    </Paragraph>
+                                    <Paragraph FontStyle="Italic" TextAlignment="Left" FontSize="14" Foreground="Gray">
+                                        
+                                    </Paragraph>
+                                </FlowDocument>
+                            </RichTextBox>
+                        </DockPanel>
                     </Grid>
                 </Grid>
             </Border>
