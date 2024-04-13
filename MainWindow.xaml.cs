@@ -21,36 +21,39 @@ namespace Write
         {
 
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Outline outline = new Outline();
-            
+            this.MouseDown += delegate { DragMove(); };
+        }
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            // Begin dragging the window
+            this.DragMove();
+        }
+        private void Button_Maximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else if (this.WindowState == WindowState.Normal)
+            {
+                this.WindowState = WindowState.Maximized;
+                //代码在这
+                this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+                this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+            }
+        }
+        private void Button_Smaller_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
-        private void btnGetText_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSetText_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnGetSelectedText_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnSetSelectedText_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rtbEditor_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
