@@ -9,22 +9,82 @@
         WindowStyle="None" 
         >
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Width="89" Height="30" VerticalAlignment="Top">
-            dxlk
-        </TextBlock>
         <Grid Height="30" VerticalAlignment="Top">
-            <Button BorderBrush="Transparent" Click="Button_Maximize_Click" Margin="0,0,39,0" HorizontalAlignment="Right" Width="30"/>
-            <Button Click="Button_Smaller_Click" Margin="0,0,74,0" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="30">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="-1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
+            <Button Click="Button_Maximize_Click" Margin="0,0,31,0" HorizontalAlignment="Right" Width="30" Background="White" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <WrapPanel x:Name="MaxMin">
+                    <Image Source="/icon/MaxMin.png" Height="18" Width="18" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </WrapPanel>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Rectangle Fill="#FF39C6FF" Width="25" Height="25">
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush ImageSource="/icon/MaxMin.png" Stretch="Uniform"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
-            <Button Click="Button_Close_Click" BorderBrush="{x:Null}" Margin="0,0,4,0" HorizontalAlignment="Right" Width="30" Background="Red" Foreground="{x:Null}"/>
+            <Button x:Name="Smaller" Click="Button_Smaller_Click" Margin="0,0,61,0" RenderTransformOrigin="0.5,0.5" BorderBrush="{x:Null}" HorizontalAlignment="Right" Width="30" Background="{x:Null}">
+                <WrapPanel>
+                    <Image Source="/icon/Smaller.png" Height="26" Width="26"/>
+                </WrapPanel>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Rectangle Fill="#FF00FF2B">
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush ImageSource="/icon/Smaller.png"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="Closer" Click="Button_Closer_Click" BorderBrush="{x:Null}" Margin="0,0,1,0" Background="{x:Null}" Foreground="{x:Null}" HorizontalAlignment="Right" Width="30">
+                <WrapPanel>
+                    <Image Source="/icon/Close.png" Height="26" Width="26"/>
+                </WrapPanel>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Rectangle Fill="Red">
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush ImageSource="/icon/Close.png"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
         <Grid Margin="0,30,0,0"/>
     </Grid>

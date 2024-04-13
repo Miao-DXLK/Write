@@ -17,6 +17,11 @@ namespace Write
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool isMaximized = false;
+        private double originalWidth = 0;
+        private double originalHeight = 0;
+        private double originalLeft = 0;
+        private double originalTop = 0;
         public MainWindow()
         {
 
@@ -34,23 +39,38 @@ namespace Write
         }
         private void Button_Maximize_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState == WindowState.Maximized)
+            if (isMaximized)
             {
+                // 恢复窗口大小和位置
                 this.WindowState = WindowState.Normal;
+                this.ResizeMode = ResizeMode.CanResize;
+                this.Left = originalLeft;
+                this.Top = originalTop;
+                this.Width = originalWidth;
+                this.Height = originalHeight;
+                isMaximized = false;
             }
-            else if (this.WindowState == WindowState.Normal)
+            else
             {
-                this.WindowState = WindowState.Maximized;
-                //代码在这
-                this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-                this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
+                originalWidth = this.Width;
+                originalHeight = this.Height;
+                originalLeft = this.Left;
+                originalTop = this.Top;
+                // 最大化窗口，但不覆盖任务栏
+                this.WindowState = WindowState.Normal;
+                this.ResizeMode = ResizeMode.NoResize; // 防止用户调整大小
+                this.Left = 0;
+                this.Top = 0;
+                this.Width = SystemParameters.PrimaryScreenWidth;
+                this.Height = SystemParameters.PrimaryScreenHeight - SystemParameters.CaptionHeight;
+                isMaximized = true;
             }
         }
         private void Button_Smaller_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
-        private void Button_Close_Click(object sender, RoutedEventArgs e)
+        private void Button_Closer_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

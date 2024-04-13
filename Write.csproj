@@ -10,8 +10,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Smith.WPF.HtmlEditor" Version="1.0.0" />
-    <PackageReference Include="WPF-UI" Version="3.0.3" />
+    <None Remove="438f01be7cdafb04851324.jpg" />
+    <None Remove="icon\Close.png" />
+    <None Remove="icon\MaxMin.png" />
+    <None Remove="icon\Smaller.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon\Close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icon\MaxMin.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icon\Smaller.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="438f01be7cdafb04851324.jpg" />
   </ItemGroup>
 
 </Project>
