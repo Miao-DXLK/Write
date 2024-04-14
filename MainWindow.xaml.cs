@@ -61,8 +61,9 @@ namespace Write
                 this.ResizeMode = ResizeMode.NoResize; // 防止用户调整大小
                 this.Left = 0;
                 this.Top = 0;
+                var toolbarHeight = SystemParameters.PrimaryScreenHeight - SystemParameters.FullPrimaryScreenHeight - SystemParameters.WindowCaptionHeight;
                 this.Width = SystemParameters.PrimaryScreenWidth;
-                this.Height = SystemParameters.PrimaryScreenHeight - SystemParameters.CaptionHeight;
+                this.Height = SystemParameters.PrimaryScreenHeight - toolbarHeight;
                 isMaximized = true;
             }
         }
